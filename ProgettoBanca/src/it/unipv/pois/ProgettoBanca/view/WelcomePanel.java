@@ -13,7 +13,7 @@ public class WelcomePanel extends JPanel {
 
 	public WelcomePanel() {
 		welcome_label = new JLabel("Benvenuto, seleziona una scelta per effettuare una operazione");
-		option_list = new JComboBox<>(DEFAULT_OPTIONS);
+		option_list = new JComboBox<String>(DEFAULT_OPTIONS);
 		setLayout(new BorderLayout());
 
 		JPanel welcome_panel = new JPanel();
