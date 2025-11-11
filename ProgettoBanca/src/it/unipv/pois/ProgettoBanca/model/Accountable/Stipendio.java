@@ -27,9 +27,8 @@ public class Stipendio implements Accountable {
 	}
 
 	@Override
-	public boolean eseguiOperazione() {
-		// TODO Auto-generated method stub
-		return false;
+	public double eseguiAccountable() {
+		return Math.abs(importo);
 	}
 
 }

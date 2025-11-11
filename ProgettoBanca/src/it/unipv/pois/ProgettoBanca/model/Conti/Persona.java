@@ -5,9 +5,9 @@ public class Persona {
 	private String nome;
 	private String cognome;
 
-	public Persona(String cf, String nome, String cognome) {
+	public Persona(String nome, String cognome) {
 		super();
-		this.cf = cf;
+		this.cf = generaCF();
 		this.nome = nome;
 		this.cognome = cognome;
 	}
@@ -34,5 +34,9 @@ public class Persona {
 
 	public void setCognome(String cognome) {
 		this.cognome = cognome;
+	}
+	
+	private String generaCF() {
+		return nome+cognome+((int)Math.random()*100);
 	}
 }

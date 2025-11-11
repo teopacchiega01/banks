@@ -5,38 +5,19 @@ import java.util.ArrayList;
 import it.unipv.pois.ProgettoBanca.model.Accountable.Accountable;
 
 public class ContoDeposito extends Conto {
-	public ContoDeposito(Persona proprietario, double saldo, ArrayList<Accountable> acc) {
-		super(proprietario, saldo, acc);
+
+	public ContoDeposito(Persona proprietario, ArrayList<Accountable> acc) {
+		super(proprietario, acc);
+	}
+
+	public ContoDeposito(Persona titolare) {
+		super(titolare);
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
-	public boolean deposito(double somma) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
 	public boolean prelievo(double somma) {
-		// TODO Auto-generated method stub
-		return false;
+		throw new UnsupportedOperationException("Impossibile effettuare un prelievo in un conto deposito");
 	}
-
-	@Override
-	public void stampaDettagli() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void aggiungiAccountable() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public boolean bonifico() {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	
 }

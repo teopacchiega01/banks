@@ -6,13 +6,11 @@ import it.unipv.pois.ProgettoBanca.model.Conti.Conto;
 
 public class Banca {
 	private String nome;
-	private String paese;
 	private ArrayList<Conto> conti;
 
-	public Banca(String nome, String paese, ArrayList<Conto> conti) {
+	public Banca(String nome, ArrayList<Conto> conti) {
 		super();
 		this.nome = nome;
-		this.paese = paese;
 		this.conti = conti;
 	}
 
@@ -23,15 +21,7 @@ public class Banca {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
-	public String getPaese() {
-		return paese;
-	}
-
-	public void setPaese(String paese) {
-		this.paese = paese;
-	}
-
+	
 	public ArrayList<Conto> getC() {
 		return conti;
 	}
@@ -41,26 +31,44 @@ public class Banca {
 	}
 
 	public double getTotaleSaldi() {
-		return 0;
+		double totale_saldi = 0;
+		for(Conto c : conti) {
+			totale_saldi += c.getSaldo();
+		}
+		return totale_saldi;
 	}
 
-	public void stampaDettagli(Conto c) {
-
-		for (int i = 0; i < conti.size(); i++) { // METTI IL FOR EACH RICCHIONE
-			System.out.println("Titolare: " + c.getProprietario() + "\n" + "iban: " + c.getIban() + "\n" + "Saldo: "
+	public void stampaDettagliTutti() {
+		for (Conto c : conti) {
+			System.out.println("Titolare: " + c.getTitolare() + "\n" + "iban: " + c.getIban() + "\n" + "Saldo: "
 					+ c.getSaldo() + "\n");
 		}
-
+	}
+	
+	public void stampaDettagliConto(Conto c) {
+		c.stampaDettagli();
 	}
 
-	void aggiungiConto(Conto c) {
-
+	public void aggiungiConto(Conto c) {
 		conti.add(c);
-
 	}
+		
+//	public void aggiungiConto(String nome_titolare, String cognome_titolare) {
+//		conti.add();
+//	}
 
-	public void operazioneMensile() {
+	public boolean operazioniAccountable() {
 		// gestisce gli accountable
+		boolean appoggio = true;
+		for(Conto appoggio_c: conti) {
+			appoggio = appoggio_c.aggiornaConto();
+		}
+		if(appoggio) {
+			System.out.println("Tutte le operazioni sono andate a buon fine");
+		}else {
+			System.out.println("Alcune operazioni sono fallite");
+		}
+		return appoggio;
 	}
 
 }

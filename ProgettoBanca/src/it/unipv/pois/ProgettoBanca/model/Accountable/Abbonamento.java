@@ -5,9 +5,8 @@ public class Abbonamento implements Accountable {
 	private String piattaforma;
 
 	@Override
-	public boolean eseguiOperazione() {
-		// TODO Auto-generated method stub
-		return false;
+	public double eseguiAccountable() {
+		return -Math.abs(importo);
 	}
 
 }
