@@ -49,6 +49,10 @@ public class AddBankAccountPanel extends JPanel {
 		add(button_panel, BorderLayout.SOUTH);
 
 	}
+	public String getOptionSelected() {
+		return (String)bankacc_list.getSelectedItem();
+	}
+
 
 	public void setResult(String s) {
 		result.setText(s);

@@ -12,6 +12,7 @@ public class MainFrame extends JFrame {
 	private WelcomePanel wp;
 	private AddBankAccountPanel add_bank_panel;
 	private BankAccountOps bank_ops;
+	
 
 	public MainFrame() throws HeadlessException {
 		super();
@@ -21,13 +22,33 @@ public class MainFrame extends JFrame {
 		wp = new WelcomePanel();
 		add_bank_panel = new AddBankAccountPanel();
 		bank_ops = new BankAccountOps();
-
-		add(wp);
+		
 		add(add_bank_panel);
 		add(bank_ops);
-
+		add(wp);
+	
+	}
+	
+	
+	
+	
+	public BankAccountOps getBank_ops() {
+		return bank_ops;
 	}
 
+
+	public void setBank_ops(BankAccountOps bank_ops) {
+		this.bank_ops = bank_ops;
+	}
+
+
+	public void setLabelWP(String s) {
+		wp.setWp(s);
+	}
+	public String getOptionSelectedWp() {
+		return wp.getOptionSelected();
+	}
+	
 	public JFrame createNewBankAcc() {
 
 		return new BankAccFrame();
@@ -35,6 +56,10 @@ public class MainFrame extends JFrame {
 
 	public JFrame createNewAccountableFrame() {
 		return new AccountableFrame();
+	}
+	
+	public String getOpionSelecterdBankOps(){
+		return bank_ops.getOptionSelected();
 	}
 
 	public String getBankAccUserIban() {
@@ -92,5 +117,9 @@ public class MainFrame extends JFrame {
 	public void setAdd_bank_panel(AddBankAccountPanel add_bank_panel) {
 		this.add_bank_panel = add_bank_panel;
 	}
+	public String getOptionSelectedAddBankAcc() {
+		return add_bank_panel.getOptionSelected();
+	}
+
 
 }

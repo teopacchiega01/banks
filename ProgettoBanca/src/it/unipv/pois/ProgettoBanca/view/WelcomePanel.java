@@ -9,7 +9,7 @@ public class WelcomePanel extends JPanel {
 
 	private JLabel welcome_label;
 	private JComboBox<String> option_list;
-	private final String[] DEFAULT_OPTIONS = { "Aggiungi Conto", "Operazioni su un Conto", "Esci" };
+	private final String[] DEFAULT_OPTIONS = { "Seleziona opzione","Aggiungi Conto", "Operazioni su un Conto", "Esci" };
 
 	public WelcomePanel() {
 		welcome_label = new JLabel("Benvenuto, seleziona una scelta per effettuare una operazione");
@@ -23,7 +23,13 @@ public class WelcomePanel extends JPanel {
 		add(welcome_label, BorderLayout.NORTH);
 
 	}
+	public void setWp(String s ) {
+		welcome_label.setText(s);
+	}
 
+	public String getOptionSelected() {
+		return (String)option_list.getSelectedItem();
+	}
 	public JComboBox<String> getOption_list() {
 		return option_list;
 	}

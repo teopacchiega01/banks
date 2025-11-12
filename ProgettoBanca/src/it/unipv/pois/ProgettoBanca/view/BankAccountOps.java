@@ -20,7 +20,7 @@ public class BankAccountOps extends JPanel {
 	public BankAccountOps() {
 		super();
 		istr = new JLabel("Inserisci i tuoi dati e scegli a quale conto vuoi accedere");
-		result = new JLabel();
+		result = new JLabel("addaa");
 		iban = new JTextField("IBAN");
 		cf = new JTextField("Codice Fiscale");
 		bankacc_list = new JComboBox<>(DEFAULT_OPTIONS);
@@ -35,9 +35,12 @@ public class BankAccountOps extends JPanel {
 
 		setLayout(new BorderLayout());
 		add(inf, BorderLayout.NORTH);
-		add(usr_insert_options, BorderLayout.CENTER);
-		add(bankacc_list, BorderLayout.SOUTH);
+		add(usr_insert_options, BorderLayout.SOUTH);
+		add(bankacc_list, BorderLayout.CENTER);
 
+	}
+	public String getOptionSelected() {
+		return (String)bankacc_list.getSelectedItem();
 	}
 
 	public void setResult(String s) {
