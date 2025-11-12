@@ -20,6 +20,7 @@ public class Controller {
 		addListeners();
 	}
 	
+	//trovare un modo per la rimozione più efficiente dei pannelli
 	
 	private void addListeners() {
 		
@@ -30,11 +31,14 @@ public class Controller {
 				String item =mf.getOptionSelectedWp();
 				if(item.equals("Aggiungi Conto")) {
 					System.out.println("adad");
+					mf.getContentPane().removeAll();
+
 					mf.setContentPane(mf.getAdd_bank_panel());
 					mf.revalidate();
 					mf.repaint();
 
 				}else if(item.equals("Operazioni su un Conto")) {
+					mf.getContentPane().removeAll();
 					mf.setContentPane(mf.getBank_ops());
 					mf.revalidate();
 					mf.repaint();
