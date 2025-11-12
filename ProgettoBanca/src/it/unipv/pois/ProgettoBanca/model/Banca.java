@@ -37,7 +37,23 @@ public class Banca {
 		}
 		return totale_saldi;
 	}
-
+	
+	public Conto getContoFromIban(String iban) {
+		Conto ret = null;
+		try {
+			for(Conto appoggio : conti) {
+				if(appoggio.getIban().equals(iban)) {
+					ret = appoggio;
+				}
+			}
+			return ret;
+		} catch (IllegalArgumentException e) {
+			// TODO: handle exception
+			System.out.println("ERRORE! Inserire una stringa come IBAN; dettagli: "+e.getMessage());
+			return ret;
+		}
+	}
+	
 	public void stampaDettagliTutti() {
 		for (Conto c : conti) {
 			System.out.println("Titolare: " + c.getTitolare() + "\n" + "iban: " + c.getIban() + "\n" + "Saldo: "
