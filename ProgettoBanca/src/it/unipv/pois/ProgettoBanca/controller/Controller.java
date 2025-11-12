@@ -5,8 +5,10 @@ import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
 
 import it.unipv.pois.ProgettoBanca.model.Banca;
+import it.unipv.pois.ProgettoBanca.view.BankAccFrame;
 import it.unipv.pois.ProgettoBanca.view.MainFrame;
 
 public class Controller {
@@ -50,22 +52,33 @@ public class Controller {
 			}
 		});
 		
-		mf.getBankAccOption_list().addActionListener(new ActionListener() {
+		mf.getConfermaButtonBankOps().addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				String item_selected = mf.getOpionSelecterdBankOps();
 				String user_iban = mf.getBankAccUserCF();
 				String user_cf = mf.getBankAccUserCF();
+				BankAccFrame frame_conti = mf.createNewBankAcc();
+				
 				
 				//Per accedere al conto corretto c'è da trovare il conto dell'utente 
 				//serve un metodo in banca che ti ritorna il conto dato i ban. 
 				
-				if((item_selected.equals("Conto Corrente"))) {
-					
-					
+				String tipo_conto = banca.getTipoContoDaIban(user_iban);
+				if(tipo_conto == "Conto Web") {
+					mf.setVisible(false);
+					frame_conti.setContentPane(frame_conti.getWap());
+				}else if(tipo_conto == "Conto Deposito") {
+					mf.setVisible(false);
+					frame_conti.setContentPane(frame_conti.getDbp());
+				}else if(tipo_conto == "Conto Corrente") {
+					mf.setVisible(false);
+					frame_conti.setContentPane(frame_conti.getAp());
+				}else {
+					System.out.println("Iban non associato a nessun conto: creare il conto prima di fare delle operazioni");
 				}
+				
 				
 			}
 		});

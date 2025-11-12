@@ -39,4 +39,10 @@ public class ContoCorrente extends Conto {
 		}
 	}
 
+	@Override
+	public String getTipoConto() {
+		// TODO Auto-generated method stub
+		return "Conto Corrente";
+	}
+
 }

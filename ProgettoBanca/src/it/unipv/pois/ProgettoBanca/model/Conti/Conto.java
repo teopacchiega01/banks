@@ -150,6 +150,7 @@ public abstract class Conto {
 	}
 	
 	
+	public abstract String getTipoConto();
 	
 	
 	

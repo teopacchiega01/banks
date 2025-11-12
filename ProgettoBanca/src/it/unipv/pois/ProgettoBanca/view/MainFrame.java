@@ -4,6 +4,7 @@ import java.awt.Dimension;
 import java.awt.HeadlessException;
 import java.awt.Toolkit;
 
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 
@@ -30,6 +31,9 @@ public class MainFrame extends JFrame {
 	}
 	
 	
+	public JButton getConfermaButtonBankOps() {
+		return bank_ops.getConferma();
+	}
 	
 	
 	public BankAccountOps getBank_ops() {
@@ -49,18 +53,15 @@ public class MainFrame extends JFrame {
 		return wp.getOptionSelected();
 	}
 	
-	public JFrame createNewBankAcc() {
+	public BankAccFrame createNewBankAcc() {
 
 		return new BankAccFrame();
 	}
 
-	public JFrame createNewAccountableFrame() {
+	public AccountableFrame createNewAccountableFrame() {
 		return new AccountableFrame();
 	}
 	
-	public String getOpionSelecterdBankOps(){
-		return bank_ops.getOptionSelected();
-	}
 
 	public String getBankAccUserIban() {
 		return bank_ops.getUserIban();
@@ -70,9 +71,7 @@ public class MainFrame extends JFrame {
 		return bank_ops.getUserCF();
 	}
 
-	public JComboBox<String> getBankAccOption_list() {
-		return bank_ops.getBankacc_list();
-	}
+
 
 	public JComboBox<String> getWpOption_list() {
 		return wp.getOption_list();
@@ -96,7 +95,7 @@ public class MainFrame extends JFrame {
 		return add_bank_panel.getSurname();
 
 	}
-
+   
 	public String getCodiceF() {
 		return add_bank_panel.getCodiceF();
 

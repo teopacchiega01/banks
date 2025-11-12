@@ -102,7 +102,11 @@ public class ContoWeb extends ContoCorrente {
 			return false;
 		}
 	}
-
+	
+	public String getTipoConto() {
+		
+		return "Conto Web";
+	}
 
 
 }

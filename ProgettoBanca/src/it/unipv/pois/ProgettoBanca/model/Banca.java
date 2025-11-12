@@ -88,18 +88,13 @@ public class Banca {
 	}
 	
 	
-	public Conto trovaContoDaIban(String iban) {
+	
+	
+	public String getTipoContoDaIban(String iban){
+		Conto app;
+		app = getContoFromIban(iban);
+		return app.getTipoConto();
 		
-		for (Conto conto : conti) {
-			
-			if(iban.equals(conto.getIban())) {
-				
-				return conto;
-			}
-			
-		}
-		
-		return null;
 		
 	}
 	

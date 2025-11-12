@@ -27,6 +27,44 @@ public class BankAccFrame extends JFrame {
 		add(ap);
 
 	}
+	
+	
+
+	public DepositAccountPanel getDbp() {
+		return dbp;
+	}
+
+
+
+	public void setDbp(DepositAccountPanel dbp) {
+		this.dbp = dbp;
+	}
+
+
+
+	public WebAccountPanel getWap() {
+		return wap;
+	}
+
+
+
+	public void setWap(WebAccountPanel wap) {
+		this.wap = wap;
+	}
+
+
+
+	public AccountPanel getAp() {
+		return ap;
+	}
+
+
+
+	public void setAp(AccountPanel ap) {
+		this.ap = ap;
+	}
+
+
 
 	public double getCifraDepositoAcc() {
 

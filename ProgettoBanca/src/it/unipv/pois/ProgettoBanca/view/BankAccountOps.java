@@ -2,6 +2,7 @@ package it.unipv.pois.ProgettoBanca.view;
 
 import java.awt.BorderLayout;
 
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -13,9 +14,7 @@ public class BankAccountOps extends JPanel {
 	private JLabel result;
 	private JTextField iban;
 	private JTextField cf;
-	private JComboBox<String> bankacc_list;
-	private final String[] DEFAULT_OPTIONS = { "Conto Corrente", "Conto Deposito", "Conto Web",
-			"Mostra totale dei saldi" };
+	private JButton conferma; 
 
 	public BankAccountOps() {
 		super();
@@ -23,7 +22,7 @@ public class BankAccountOps extends JPanel {
 		result = new JLabel("addaa");
 		iban = new JTextField("IBAN");
 		cf = new JTextField("Codice Fiscale");
-		bankacc_list = new JComboBox<>(DEFAULT_OPTIONS);
+		conferma = new JButton("Vai al tuo conto");
 
 		JPanel usr_insert_options = new JPanel();
 		usr_insert_options.add(iban);
@@ -35,13 +34,31 @@ public class BankAccountOps extends JPanel {
 
 		setLayout(new BorderLayout());
 		add(inf, BorderLayout.NORTH);
-		add(usr_insert_options, BorderLayout.SOUTH);
-		add(bankacc_list, BorderLayout.CENTER);
+		add(usr_insert_options, BorderLayout.CENTER);
+		add(conferma, BorderLayout.SOUTH);
 
 	}
-	public String getOptionSelected() {
-		return (String)bankacc_list.getSelectedItem();
+	
+	
+	public JLabel getResult() {
+		return result;
 	}
+
+
+	public void setResult(JLabel result) {
+		this.result = result;
+	}
+
+
+	public JButton getConferma() {
+		return conferma;
+	}
+
+
+	public void setConferma(JButton conferma) {
+		this.conferma = conferma;
+	}
+
 
 	public void setResult(String s) {
 		result.setText(s);
@@ -79,12 +96,6 @@ public class BankAccountOps extends JPanel {
 		this.cf = cf;
 	}
 
-	public JComboBox<String> getBankacc_list() {
-		return bankacc_list;
-	}
 
-	public void setBankacc_list(JComboBox<String> bankacc_list) {
-		this.bankacc_list = bankacc_list;
-	}
 
 }
