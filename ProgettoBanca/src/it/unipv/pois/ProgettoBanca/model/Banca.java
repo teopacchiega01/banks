@@ -86,5 +86,23 @@ public class Banca {
 		}
 		return appoggio;
 	}
+	
+	
+	public Conto trovaContoDaIban(String iban) {
+		
+		for (Conto conto : conti) {
+			
+			if(iban.equals(conto.getIban())) {
+				
+				return conto;
+			}
+			
+		}
+		
+		return null;
+		
+	}
+	
+	
 
 }
