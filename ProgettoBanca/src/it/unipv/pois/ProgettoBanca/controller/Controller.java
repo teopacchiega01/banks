@@ -85,6 +85,32 @@ public class Controller {
 			}
 		});
 		
+//		mf.getBankaccList().addActionListener(new ActionListener() {
+//			
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				// TODO Auto-generated method stub
+//				
+//				mf.getUsersNome();
+//				mf.getBankAccUserCF();
+//				mf.getSurname();
+//				
+//				if(mf.getOptionSelectedAddBankAcc().equals("Conto Corrente")) {
+//					
+//					
+//					
+//				}else if(mf.getOptionSelectedAddBankAcc().equals("Conto Deposito")) {
+//					
+//					
+//					
+//				}else if(mf.getOptionSelectedAddBankAcc().equals("Conto Web")){
+//					
+//					
+//				}
+//				
+//			}
+//		});
+		
 	}
 	
 }

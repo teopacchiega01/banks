@@ -15,6 +15,8 @@ public class ContoCorrente extends Conto {
 		super(proprietario);
 		// TODO Auto-generated constructor stub
 	}
+	
+	
 
 	@Override
 	public boolean prelievo(double somma) {

@@ -116,6 +116,7 @@ public class MainFrame extends JFrame {
 	public void setAdd_bank_panel(AddBankAccountPanel add_bank_panel) {
 		this.add_bank_panel = add_bank_panel;
 	}
+	
 	public String getOptionSelectedAddBankAcc() {
 		return add_bank_panel.getOptionSelected();
 	}

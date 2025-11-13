@@ -18,7 +18,7 @@ public class progettoBanca {
 
 		MainFrame mf = new MainFrame();
 		
-		Persona p = new Persona("Pisello","Negro");
+		Persona p = new Persona("Silvio","Berlusconi");
 		ContoWeb c = new ContoWeb(p);
 		ContoDeposito cd = new ContoDeposito(p);
 		ArrayList<Conto> conti = new ArrayList<>();

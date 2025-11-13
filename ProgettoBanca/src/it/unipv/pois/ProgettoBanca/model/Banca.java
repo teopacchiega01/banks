@@ -3,6 +3,7 @@ package it.unipv.pois.ProgettoBanca.model;
 import java.util.ArrayList;
 
 import it.unipv.pois.ProgettoBanca.model.Conti.Conto;
+import it.unipv.pois.ProgettoBanca.model.Conti.ContoCorrente;
 
 public class Banca {
 	private String nome;
@@ -88,8 +89,6 @@ public class Banca {
 	}
 	
 	
-	
-	
 	public String getTipoContoDaIban(String iban){
 		Conto app;
 		app = getContoFromIban(iban);
@@ -97,6 +96,30 @@ public class Banca {
 		
 		
 	}
+	
+	
+//	public boolean aggiungiContoCorrente(String nome, String cognome, String cf) {
+//	
+//		
+//		Conto c = new ContoCorrente(nome, cognome, cf);
+//		
+//		
+//	}
+//	
+//	public boolean aggiungiContoWeb(String nome, String cognome, String cf) {
+//		
+//		
+//		
+//	}
+//	
+//	public boolean aggiungiContoDeposito(String nome, String cognome, String cf) {
+//		
+//		
+//		
+//		
+//	}
+	
+	
 	
 	
 

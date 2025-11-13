@@ -11,6 +11,13 @@ public class Persona {
 		this.nome = nome;
 		this.cognome = cognome;
 	}
+	
+	public Persona(String nome, String cognome, String cf) {
+		super();
+		this.cf = cf;
+		this.nome = nome;
+		this.cognome = cognome;
+	}
 
 	public String getCf() {
 		return cf;

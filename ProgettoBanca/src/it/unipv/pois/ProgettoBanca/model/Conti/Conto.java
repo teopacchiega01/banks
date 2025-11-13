@@ -26,6 +26,8 @@ public abstract class Conto {
 		this.acc = new ArrayList<Accountable>();
 	}
 	
+	
+	//Chiedere se il new persona si può mettere
 	public Conto(String nome, String cognome, ArrayList<Accountable> acc) {
 		super();
 		this.titolare = new Persona(nome, cognome);
@@ -37,6 +39,15 @@ public abstract class Conto {
 	public Conto(String nome, String cognome) {
 		super();
 		this.titolare = new Persona(nome, cognome);
+		this.iban = generaIban();
+		this.saldo = 0;
+		this.acc = new ArrayList<Accountable>();
+	}
+	
+	//COSTRUTTORE DA MODIFICARE E CHIEDERE
+	public Conto(String nome, String cognome, String cf) {
+		super();
+		this.titolare = new Persona(nome, cognome, cf);
 		this.iban = generaIban();
 		this.saldo = 0;
 		this.acc = new ArrayList<Accountable>();
