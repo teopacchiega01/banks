@@ -57,24 +57,30 @@ public class Controller {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				String user_iban = mf.getBankAccUserCF();
+				String user_iban = mf.getBankAccUserIban();
 				String user_cf = mf.getBankAccUserCF();
 				BankAccFrame frame_conti = mf.createNewBankAcc();
 				
+				System.out.println(user_iban);
 				
 				//Per accedere al conto corretto c'è da trovare il conto dell'utente 
 				//serve un metodo in banca che ti ritorna il conto dato i ban. 
 				
 				String tipo_conto = banca.getTipoContoDaIban(user_iban);
-				if(tipo_conto == "Conto Web") {
+				if(tipo_conto.equals( "Conto Web")) {
 					mf.setVisible(false);
 					frame_conti.setContentPane(frame_conti.getWap());
-				}else if(tipo_conto == "Conto Deposito") {
+					frame_conti.setVisible(true);
+				}else if(tipo_conto.equals("Conto Deposito")) {
 					mf.setVisible(false);
 					frame_conti.setContentPane(frame_conti.getDbp());
-				}else if(tipo_conto == "Conto Corrente") {
+					frame_conti.setVisible(true);
+
+				}else if(tipo_conto.equals("Conto Corrente")) {
 					mf.setVisible(false);
 					frame_conti.setContentPane(frame_conti.getAp());
+					frame_conti.setVisible(true);
+
 				}else {
 					System.out.println("Iban non associato a nessun conto: creare il conto prima di fare delle operazioni");
 				}
