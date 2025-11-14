@@ -18,7 +18,9 @@ public class Controller {
 		addListeners();
 	}
 	
-	//trovare un modo per la rimozione più efficiente dei pannelli
+	//trovare un modo per la rimozione più efficiente dei pannelli:
+	
+	
 	
 	private void addListeners() {
 		
@@ -29,6 +31,7 @@ public class Controller {
 				String item =mf.getOptionSelectedWp();
 				if(item.equals("Aggiungi Conto")) {
 					System.out.println("adad");
+					//getcontentpane non va bene, occorre fare un metodo in mf che permette di chiudere i pannelli
 					mf.getContentPane().removeAll();
 
 					mf.setContentPane(mf.getAdd_bank_panel());
@@ -85,31 +88,7 @@ public class Controller {
 			}
 		});
 		
-//		mf.getBankaccList().addActionListener(new ActionListener() {
-//			
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				// TODO Auto-generated method stub
-//				
-//				mf.getUsersNome();
-//				mf.getBankAccUserCF();
-//				mf.getSurname();
-//				
-//				if(mf.getOptionSelectedAddBankAcc().equals("Conto Corrente")) {
-//					
-//					
-//					
-//				}else if(mf.getOptionSelectedAddBankAcc().equals("Conto Deposito")) {
-//					
-//					
-//					
-//				}else if(mf.getOptionSelectedAddBankAcc().equals("Conto Web")){
-//					
-//					
-//				}
-//				
-//			}
-//		});
+//		
 		
 	}
 	
