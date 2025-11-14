@@ -14,7 +14,8 @@ public class AccountableFactory {
 	// chiameremo AccountableFactory.*adapter dell'interfaccia della classe che ci interessa*?
 	// - bisogna usare factory e adapter in qualunque caso oppure solo per "anticipare/prevedere"
 	// possibili classi che verranno aggiunte? quindi va retroattivamente applicato anche a stipendio e abbonamento?
-	
+	// - se volessimo introdurre un accountable di tipo bolletta da interfaccia grafica dobbiamo anche modificare
+	// la view e il controller; questo accoppiamento è voluto?
 	
 	
 	
