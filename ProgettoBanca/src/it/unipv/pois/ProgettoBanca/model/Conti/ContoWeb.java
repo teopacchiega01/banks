@@ -27,6 +27,12 @@ public class ContoWeb extends ContoCorrente {
 		this.pw = "changeme";
 		this.account_abilitato = false;
 	}
+	
+	public ContoWeb() {
+		super();
+		this.pw = "changeme";
+		this.account_abilitato = false;
+	}
 
 	public String getPw() {
 		return pw;

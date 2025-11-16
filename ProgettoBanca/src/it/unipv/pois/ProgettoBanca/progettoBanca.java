@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import it.unipv.pois.ProgettoBanca.controller.Controller;
 import it.unipv.pois.ProgettoBanca.model.Banca;
 import it.unipv.pois.ProgettoBanca.model.Conti.Conto;
+import it.unipv.pois.ProgettoBanca.model.Conti.ContoCorrente;
 import it.unipv.pois.ProgettoBanca.model.Conti.ContoDeposito;
 import it.unipv.pois.ProgettoBanca.model.Conti.ContoWeb;
 import it.unipv.pois.ProgettoBanca.model.Conti.Persona;
@@ -17,18 +18,20 @@ public class progettoBanca {
 	public static void main(String[] args) {
 
 		MainFrame mf = new MainFrame();
-		
-		Persona p = new Persona("Silvio","Berlusconi");
-		ContoWeb c = new ContoWeb(p);
-		ContoDeposito cd = new ContoDeposito(p);
 		ArrayList<Conto> conti = new ArrayList<Conto>();
 		ArrayList<Persona> clienti = new ArrayList<Persona>();
-		conti.add(c);
-		conti.add(cd);
-		clienti.add(p);
+		clienti.add(new Persona("Silvio", "Berlusconi", "SLVBRL69420"));
+		clienti.add(new Persona("PierSilvio", "Berlusconi", "PRSBRL69421"));
+		clienti.add(new Persona("Silvia", "Berlusconi", "SLVBRL69422F"));
+		clienti.add(new Persona("Alice", "Budini", "DBDPFSVAL580KGF"));
+		clienti.add(new Persona("Elisa", "Finotti", "TIPREGOSCOPATILOSCOTTIF"));
+		conti.add(new ContoCorrente(clienti.get(0)));
+		conti.add(new ContoWeb(clienti.get(1)));
+		conti.add(new ContoDeposito(clienti.get(2)));
+		
 		Banca banca = new Banca("Banca di Sondrio",conti, clienti);
-		for(Conto ca : conti) {
-			System.out.println(ca.getIban());
+		for(Conto app : conti) {
+			System.out.println(app.getIban());
 		}
 		
 		Controller controller = new Controller(banca, mf);

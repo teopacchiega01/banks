@@ -15,6 +15,10 @@ public class ContoDeposito extends Conto {
 		// TODO Auto-generated constructor stub
 	}
 
+	public ContoDeposito() {
+		super();
+	}
+	
 	@Override
 	public boolean prelievo(double somma) {
 		throw new UnsupportedOperationException("Impossibile effettuare un prelievo in un conto deposito");

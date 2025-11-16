@@ -14,7 +14,7 @@ public class BankAccFrame extends JFrame {
 	private AccountPanel ap;
 
 	public BankAccFrame() throws HeadlessException {
-		super();
+		//super();
 		setTitle("FrameConti");
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		setSize(screenSize);

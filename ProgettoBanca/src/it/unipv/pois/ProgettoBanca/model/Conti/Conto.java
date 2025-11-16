@@ -25,6 +25,15 @@ public abstract class Conto {
 		this.saldo = 0;
 		this.acc = new ArrayList<Accountable>();
 	}
+	
+	public Conto() {
+		super();
+		this.titolare = null;
+		this.iban = generaIban();
+		this.saldo = 0;
+		this.acc = new ArrayList<Accountable>();
+	}
+	
 
 	public Persona getTitolare() {
 		return titolare;

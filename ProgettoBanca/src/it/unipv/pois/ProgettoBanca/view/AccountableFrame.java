@@ -14,7 +14,7 @@ public class AccountableFrame extends JFrame {
 	SubscriptionPanel sub_panel;
 
 	public AccountableFrame() throws HeadlessException {
-		super();
+		//super();
 		setTitle("AccountableFrame");
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		setSize(screenSize);

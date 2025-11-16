@@ -11,9 +11,13 @@ public class ContoCorrente extends Conto {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ContoCorrente(Persona proprietario) {
-		super(proprietario);
+	public ContoCorrente(Persona titolare) {
+		super(titolare);
 		// TODO Auto-generated constructor stub
+	}
+	
+	public ContoCorrente() {
+		super();
 	}
 	
 	

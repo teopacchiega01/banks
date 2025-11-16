@@ -99,19 +99,24 @@ public class Banca {
 		for(Persona cliente : clienti) {
 			cf_cliente = cliente.getCf();
 			if(cf_cliente.equals(cf)) {
+				System.out.println("Cliente trovato");
 				appoggio = conti_factory.getConto(contoEnumToString(tipo_conto));
 				appoggio.setTitolare(cliente);
 				conti.add(appoggio);
 				cliente_trovato = true;
+				System.out.println(appoggio.getIban());
 			}
 		}
 		if(!cliente_trovato) {
-			Persona cliente = new Persona(nome, cognome, cf) ;
+			System.out.println("Registro nuovo cliente");
+			Persona cliente = new Persona(nome, cognome, cf);
 			clienti.add(cliente);
 			appoggio = conti_factory.getConto(contoEnumToString(tipo_conto));
 			appoggio.setTitolare(cliente);
 			conti.add(appoggio);
+			System.out.println(appoggio.getIban());
 		}
+		
 	}
 
 	public boolean operazioniAccountable() {
@@ -147,7 +152,7 @@ public class Banca {
 		switch(tipo_conto) {
 		case "Conto Corrente":
 			return EnumConti.CONTO_CORRENTE;
-		case "Conto web":
+		case "Conto Web":
 			return EnumConti.CONTO_WEB;
 		case "Conto Deposito":
 			return EnumConti.CONTO_DEPOSITO;

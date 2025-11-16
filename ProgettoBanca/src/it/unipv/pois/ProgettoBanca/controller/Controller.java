@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import it.unipv.pois.ProgettoBanca.model.Banca;
+import it.unipv.pois.ProgettoBanca.model.Conti.ContiFactory;
 import it.unipv.pois.ProgettoBanca.view.BankAccFrame;
 import it.unipv.pois.ProgettoBanca.view.MainFrame;
 
@@ -23,24 +24,24 @@ public class Controller {
 	
 	
 	private void addListeners() {
-		
+				
 		mf.getWpOption_list().addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				String item =mf.getOptionSelectedWp();
 				if(item.equals("Aggiungi Conto")) {
-					System.out.println("adad");
-					mf.rimuoviTutti();
+					mf.rimuoviPannello(mf.getWp());
 					mf.setContentPane(mf.getAdd_bank_panel());
 					mf.revalidate();
 					mf.repaint();
 
 				}else if(item.equals("Operazioni su un Conto")) {
-					mf.rimuoviTutti();
+					mf.rimuoviPannello(mf.getWp());
 					mf.setContentPane(mf.getBank_ops());
 					mf.revalidate();
 					mf.repaint();
+					
 				}else {
 					mf.dispose();
 				}
@@ -59,9 +60,6 @@ public class Controller {
 				BankAccFrame frame_conti = mf.createNewBankAcc();
 				
 				System.out.println(user_iban);
-				
-				//Per accedere al conto corretto c'è da trovare il conto dell'utente 
-				//serve un metodo in banca che ti ritorna il conto dato i ban. 
 				
 				String tipo_conto = banca.getTipoContoDaIban(user_iban);
 				if(tipo_conto.equals( "Conto Web")) {
@@ -86,7 +84,22 @@ public class Controller {
 			}
 		});
 		
-//		
+		mf.getConfermaAddBankAccount().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				String nome = mf.getUsersNome();
+				String cognome = mf.getSurname();
+				String cf = mf.getCodiceF();
+				String tipo_conto = mf.getOptionSelectedAddBankAcc();
+				banca.creaConto(tipo_conto, cf, nome, cognome);
+				mf.setLabelConfermaAggiuntaConto("Conto inserito");
+			}
+		});
+		
+		
+		//Come gestire gli actionListener degli altri frame?
 		
 	}
 	

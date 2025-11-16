@@ -2,5 +2,5 @@ bolletta.adapter.class.name=it.unipv.pois.ProgettoBanca.model.Accountable
 
 
 CONTO_CORRENTE=it.unipv.pois.ProgettoBanca.model.Conti.ContoCorrente
-CONTO_WEB=it.unipv.pois.ProgettoBanca.model.Conti.Conto.ContoWeb
-CONTO_DEPOSITO=it.unipv.pois.ProgettoBanca.model.Conti.Conto.ContoDeposito
+CONTO_WEB=it.unipv.pois.ProgettoBanca.model.Conti.ContoWeb
+CONTO_DEPOSITO=it.unipv.pois.ProgettoBanca.model.Conti.ContoDeposito

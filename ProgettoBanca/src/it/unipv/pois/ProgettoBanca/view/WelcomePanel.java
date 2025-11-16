@@ -1,6 +1,7 @@
 package it.unipv.pois.ProgettoBanca.view;
 
 import java.awt.BorderLayout;
+
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -18,7 +19,7 @@ public class WelcomePanel extends JPanel {
 
 		JPanel welcome_panel = new JPanel();
 		welcome_panel.add(option_list);
-
+		
 		add(welcome_panel, BorderLayout.CENTER);
 		add(welcome_label, BorderLayout.NORTH);
 

@@ -19,8 +19,10 @@ public class MainFrame extends JFrame {
 	public MainFrame() throws HeadlessException {
 		super();
 		setTitle("MainFrame");
-		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		setSize(screenSize);
+		//Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		//setSize(screenSize);
+		setSize(new Dimension(600, 600));
+		
 		wp = new WelcomePanel();
 		add_bank_panel = new AddBankAccountPanel();
 		bank_ops = new BankAccountOps();
@@ -120,6 +122,14 @@ public class MainFrame extends JFrame {
 	
 	public String getOptionSelectedAddBankAcc() {
 		return add_bank_panel.getOptionSelected();
+	}
+
+	public JButton getConfermaAddBankAccount() {
+		return add_bank_panel.getConferma_inserimento();
+	}
+	
+	public void setLabelConfermaAggiuntaConto(String contenuto_label) {
+		add_bank_panel.setResult(contenuto_label);
 	}
 	
 	public void rimuoviPannello(JPanel p) {
