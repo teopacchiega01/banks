@@ -21,10 +21,12 @@ public class progettoBanca {
 		Persona p = new Persona("Silvio","Berlusconi");
 		ContoWeb c = new ContoWeb(p);
 		ContoDeposito cd = new ContoDeposito(p);
-		ArrayList<Conto> conti = new ArrayList<>();
+		ArrayList<Conto> conti = new ArrayList<Conto>();
+		ArrayList<Persona> clienti = new ArrayList<Persona>();
 		conti.add(c);
 		conti.add(cd);
-		Banca banca = new Banca("Banca di Sondrio",conti);
+		clienti.add(p);
+		Banca banca = new Banca("Banca di Sondrio",conti, clienti);
 		for(Conto ca : conti) {
 			System.out.println(ca.getIban());
 		}

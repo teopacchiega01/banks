@@ -7,6 +7,7 @@ import java.awt.Toolkit;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 public class MainFrame extends JFrame {
 
@@ -119,6 +120,14 @@ public class MainFrame extends JFrame {
 	
 	public String getOptionSelectedAddBankAcc() {
 		return add_bank_panel.getOptionSelected();
+	}
+	
+	public void rimuoviPannello(JPanel p) {
+		remove(p);
+	}
+	
+	public void rimuoviTutti() {
+		removeAll();
 	}
 
 

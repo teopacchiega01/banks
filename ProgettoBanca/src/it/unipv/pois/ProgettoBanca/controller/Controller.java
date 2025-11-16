@@ -31,15 +31,13 @@ public class Controller {
 				String item =mf.getOptionSelectedWp();
 				if(item.equals("Aggiungi Conto")) {
 					System.out.println("adad");
-					//getcontentpane non va bene, occorre fare un metodo in mf che permette di chiudere i pannelli
-					mf.getContentPane().removeAll();
-
+					mf.rimuoviTutti();
 					mf.setContentPane(mf.getAdd_bank_panel());
 					mf.revalidate();
 					mf.repaint();
 
 				}else if(item.equals("Operazioni su un Conto")) {
-					mf.getContentPane().removeAll();
+					mf.rimuoviTutti();
 					mf.setContentPane(mf.getBank_ops());
 					mf.revalidate();
 					mf.repaint();
