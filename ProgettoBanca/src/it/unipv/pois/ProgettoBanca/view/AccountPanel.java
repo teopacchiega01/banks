@@ -16,7 +16,7 @@ public class AccountPanel extends JPanel {
 
 	private JTextField cifra;
 	private JComboBox<String> operations;
-	private static final String[] ACC_OPERATIONS = { "Prelievo,", "Deposito", "Stampa Dettagli",
+	private static final String[] ACC_OPERATIONS = { "Prelievo", "Deposito", "Stampa Dettagli",
 			"Aggiungi un accredito/addebito mensile", "Rimuovi un accredito/addebito mensile"
 
 	};
@@ -113,6 +113,12 @@ public class AccountPanel extends JPanel {
 
 	public static String[] getAccOperations() {
 		return ACC_OPERATIONS;
+	}
+	
+	public String getOptionSelected() {
+		
+		return (String)operations.getSelectedItem();
+		
 	}
 
 }

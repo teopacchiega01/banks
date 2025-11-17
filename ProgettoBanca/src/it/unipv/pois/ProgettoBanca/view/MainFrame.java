@@ -3,6 +3,9 @@ package it.unipv.pois.ProgettoBanca.view;
 import java.awt.Dimension;
 import java.awt.HeadlessException;
 import java.awt.Toolkit;
+import java.awt.event.ActionListener;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -14,6 +17,9 @@ public class MainFrame extends JFrame {
 	private WelcomePanel wp;
 	private AddBankAccountPanel add_bank_panel;
 	private BankAccountOps bank_ops;
+	
+	private PropertyChangeSupport support;
+	public static final String PROPERTY = "CambioFinestra";
 	
 
 	public MainFrame() throws HeadlessException {
@@ -30,6 +36,8 @@ public class MainFrame extends JFrame {
 		add(add_bank_panel);
 		add(bank_ops);
 		add(wp);
+		
+		support = new PropertyChangeSupport(this);
 	
 	}
 	
@@ -139,6 +147,25 @@ public class MainFrame extends JFrame {
 	public void rimuoviTutti() {
 		removeAll();
 	}
+	
+	
+	//Metodi support
+	
+	public void addObserver(PropertyChangeListener p) {
+		
+		support.addPropertyChangeListener(PROPERTY, p);
+		
+	}
+	
+	
+	public void setProperty(JFrame f1, JFrame f2) {
+		
+		support.firePropertyChange(PROPERTY, f1, f2);
+		
+	}
+	
+	
+	
 
 
 }

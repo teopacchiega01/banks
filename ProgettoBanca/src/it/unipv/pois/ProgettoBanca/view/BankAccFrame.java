@@ -132,5 +132,11 @@ public class BankAccFrame extends JFrame {
 		return ap.getOperations();
 
 	}
+	
+	public String getAccComboBoxOption() {
+		
+		return ap.getOptionSelected();
+		
+	}
 
 }

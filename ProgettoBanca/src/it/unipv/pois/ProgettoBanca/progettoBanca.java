@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 
 import it.unipv.pois.ProgettoBanca.controller.Controller;
+import it.unipv.pois.ProgettoBanca.controller.ControllerObserver;
 import it.unipv.pois.ProgettoBanca.model.Banca;
 import it.unipv.pois.ProgettoBanca.model.Conti.Conto;
 import it.unipv.pois.ProgettoBanca.model.Conti.ContoCorrente;
@@ -37,5 +38,10 @@ public class progettoBanca {
 		Controller controller = new Controller(banca, mf);
 		mf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		mf.setVisible(true);
+		
+//		ControllerObserver c = new ControllerObserver();
+		
+		
 	}
 }
+
