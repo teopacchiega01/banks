@@ -25,7 +25,7 @@ public class progettoBanca {
 		clienti.add(new Persona("PierSilvio", "Berlusconi", "PRSBRL69421"));
 		clienti.add(new Persona("Silvia", "Berlusconi", "SLVBRL69422F"));
 		clienti.add(new Persona("Alice", "Budini", "DBDPFSVAL580KGF"));
-		clienti.add(new Persona("Elisa", "Finotti", "TIPREGOSCOPATILOSCOTTIF"));
+		clienti.add(new Persona("Elisa", "Finotti", "TPSLSPDBCLFDPF04F"));
 		conti.add(new ContoCorrente(clienti.get(0)));
 		conti.add(new ContoWeb(clienti.get(1)));
 		conti.add(new ContoDeposito(clienti.get(2)));
