@@ -5,7 +5,7 @@ import java.beans.PropertyChangeListener;
 
 import javax.swing.JFrame;
 
-import it.unipv.pois.ProgettoBanca.view.BankAccFrame;
+import it.unipv.pois.ProgettoBanca.view.frameconti.BankAccFrame;
 
 public class ControllerObserver implements PropertyChangeListener{
 

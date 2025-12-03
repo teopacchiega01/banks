@@ -1,4 +1,4 @@
-package it.unipv.pois.ProgettoBanca.view;
+package it.unipv.pois.ProgettoBanca.view.mainframe;
 
 import java.awt.BorderLayout;
 

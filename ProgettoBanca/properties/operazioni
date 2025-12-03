@@ -1,0 +1,7 @@
+#Prelievo, Deposito, Stampa Dettagli, Aggiungi un accredito/addebito mensile, Rimuovi un accredito/addebito mensile, Modifica Password
+
+
+Prelievo=it.unipv.pois.ProgettoBanca.model.operazioniconti.PrelievoStrategy
+Deposito=it.unipv.pois.ProgettoBanca.model.operazioniconti.DepositoStrategy
+Stampa-Dettagli=it.unipv.pois.ProgettoBanca.model.operazioniconti.StampaDettagliStrategy
+Modifica-Password=it.unipv.pois.ProgettoBanca.model.operazioniconti.ModificaPswStrategy

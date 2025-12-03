@@ -12,7 +12,7 @@ import it.unipv.pois.ProgettoBanca.model.Conti.ContoCorrente;
 import it.unipv.pois.ProgettoBanca.model.Conti.ContoDeposito;
 import it.unipv.pois.ProgettoBanca.model.Conti.ContoWeb;
 import it.unipv.pois.ProgettoBanca.model.Conti.Persona;
-import it.unipv.pois.ProgettoBanca.view.MainFrame;
+import it.unipv.pois.ProgettoBanca.view.mainframe.MainFrame;
 
 public class progettoBanca {
 
@@ -28,7 +28,7 @@ public class progettoBanca {
 		clienti.add(new Persona("Elisa", "Finotti", "TPSLSPDBCLFDPF04F"));
 		conti.add(new ContoCorrente(clienti.get(0)));
 		conti.add(new ContoWeb(clienti.get(1)));
-		conti.add(new ContoDeposito(clienti.get(2)));
+		conti.add(new ContoDeposito(clienti.get(4)));
 		
 		Banca banca = new Banca("Banca di Sondrio",conti, clienti);
 		for(Conto app : conti) {

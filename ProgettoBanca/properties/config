@@ -1,0 +1,13 @@
+#Accountable
+accountable_names=Stipendio, Abbonamento
+
+#Conti
+bank_accounts=Conto Corrente, Conto Deposito, Conto Web
+
+#Operazioni
+bank_operations_web=Prelievo, Deposito, Stampa Dettagli, Aggiungi un accredito/addebito mensile, Rimuovi un accredito/addebito mensile, Modifica Password
+bank_operations_deposit=Deposito, Stampa Dettagli, Aggiungi un accredito/addebito mensile, Rimuovi un accredito/addebito mensile
+bank_operations_bankacc=Prelievo,Deposito, Stampa Dettagli, Aggiungi un accredito/addebito mensile, Rimuovi un accredito/addebito mensile
+
+#Welcome Panel
+wp_operations=Seleziona opzione,Aggiungi Conto,Operazioni su un Conto,Esci

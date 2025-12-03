@@ -1,4 +1,4 @@
-package it.unipv.pois.ProgettoBanca.view;
+package it.unipv.pois.ProgettoBanca.view.mainframe;
 
 import java.awt.Dimension;
 import java.awt.HeadlessException;
@@ -12,6 +12,9 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import it.unipv.pois.ProgettoBanca.view.accountableframe.AccountableFrame;
+import it.unipv.pois.ProgettoBanca.view.frameconti.BankAccFrame;
+
 public class MainFrame extends JFrame {
 
 	private WelcomePanel wp;
@@ -19,7 +22,7 @@ public class MainFrame extends JFrame {
 	private BankAccountOps bank_ops;
 	
 	private PropertyChangeSupport support;
-	public static final String PROPERTY = "CambioFinestra";
+//	public static final String PROPERTY = "CambioFinestra";
 	
 
 	public MainFrame() throws HeadlessException {
@@ -148,23 +151,47 @@ public class MainFrame extends JFrame {
 		removeAll();
 	}
 	
-	
-	//Metodi support
-	
-	public void addObserver(PropertyChangeListener p) {
+	public void changeMainFramePanelByChoice(String option) {
+		switch(option) {
+		case "Aggiungi Conto":
+			rimuoviPannello(wp);
+			setContentPane(add_bank_panel);
+			revalidate();
+			repaint();
+			break;
+		case "Operazioni su un Conto":
+			
+			rimuoviPannello(wp);
+			setContentPane(bank_ops);
+			revalidate();
+			repaint();
+			break;
+		default:
+			System.out.println("Nessuna opzione valida");
+			dispose();
 		
-		support.addPropertyChangeListener(PROPERTY, p);
+		}
 		
+
 	}
 	
 	
-	public void setProperty(JFrame f1, JFrame f2) {
-		
-		support.firePropertyChange(PROPERTY, f1, f2);
-		
-	}
-	
-	
+//	Metodi support
+//	
+//	public void addObserver(PropertyChangeListener p) {
+//		
+//		support.addPropertyChangeListener(PROPERTY, p);
+//		
+//	}
+//	
+//	
+//	public void setProperty(JFrame f1, JFrame f2) {
+//		
+//		support.firePropertyChange(PROPERTY, f1, f2);
+//		
+//	}
+//	
+//	
 	
 
 

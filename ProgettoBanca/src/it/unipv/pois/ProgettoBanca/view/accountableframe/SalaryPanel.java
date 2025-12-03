@@ -1,4 +1,4 @@
-package it.unipv.pois.ProgettoBanca.view;
+package it.unipv.pois.ProgettoBanca.view.accountableframe;
 
 import java.awt.BorderLayout;
 

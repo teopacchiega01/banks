@@ -1,4 +1,4 @@
-package it.unipv.pois.ProgettoBanca.view;
+package it.unipv.pois.ProgettoBanca.view.frameconti;
 
 import java.awt.BorderLayout;
 
@@ -7,29 +7,32 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class AccountPanel extends JPanel {
+import it.unipv.pois.ProgettoBanca.view.PropertyReader;
 
+public class DepositAccountPanel extends JPanel {
+
+	private PropertyReader p;
 	private JLabel proprietrario;
 	private JLabel istr;
-	private JLabel saldo;
 	private JLabel result;
-
+	private JLabel saldo;
 	private JTextField cifra;
 	private JComboBox<String> operations;
-	private static final String[] ACC_OPERATIONS = { "Prelievo", "Deposito", "Stampa Dettagli",
-			"Aggiungi un accredito/addebito mensile", "Rimuovi un accredito/addebito mensile"
+//	private static final String[] ACC_OPERATIONS = { "Deposito", "Stampa Dettagli",
+//			"Aggiungi un accredito/addebito mensile", "Rimuovi un accredito/addebito mensile"
+//
+//	};
 
-	};
-
-	public AccountPanel() {
+	public DepositAccountPanel() {
 		super();
 		istr = new JLabel("Inserisci le tue informazioni e seleziona una delle opzioni");
 		saldo = new JLabel();
-		proprietrario = new JLabel();
 		result = new JLabel();
-
+		proprietrario = new JLabel();
 		cifra = new JTextField("inserisci una cifra da accreditare/depositare");
-		operations = new JComboBox<>(ACC_OPERATIONS);
+		
+		p = new PropertyReader("properties/config");
+		operations = new JComboBox<String>(p.getPropertyValueAsStringVec(",","bank_operations_deposit"));
 
 		setLayout(new BorderLayout());
 		JPanel data_insert = new JPanel();
@@ -39,15 +42,12 @@ public class AccountPanel extends JPanel {
 		informations.add(proprietrario);
 		informations.add(saldo);
 		informations.add(istr);
+		informations.add(result);
 
 		add(informations, BorderLayout.NORTH);
 		add(data_insert, BorderLayout.CENTER);
 		add(operations, BorderLayout.SOUTH);
 
-	}
-
-	public void setResult(String s) {
-		result.setText(s);
 	}
 
 	public double getCifraAccreditoDeposito() {
@@ -61,6 +61,10 @@ public class AccountPanel extends JPanel {
 			return 1;
 		}
 
+	}
+
+	public void setResult(String text) {
+		result.setText(text);
 	}
 
 	public void setLabelProprietario(String text) {
@@ -111,14 +115,8 @@ public class AccountPanel extends JPanel {
 		this.operations = operations;
 	}
 
-	public static String[] getAccOperations() {
-		return ACC_OPERATIONS;
-	}
-	
-	public String getOptionSelected() {
-		
-		return (String)operations.getSelectedItem();
-		
-	}
+//	public static String[] getAccOperations() {
+//		return ACC_OPERATIONS;
+//	}
 
 }

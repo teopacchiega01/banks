@@ -1,4 +1,4 @@
-package it.unipv.pois.ProgettoBanca.view;
+package it.unipv.pois.ProgettoBanca.view.accountableframe;
 
 import java.awt.BorderLayout;
 
@@ -6,16 +6,22 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import it.unipv.pois.ProgettoBanca.view.PropertyReader;
+
 public class AccountablePanel extends JPanel {
 
 	private JLabel istr;
 	private JComboBox<String> options;
-	private final String[] DEFAULT_OPTIONS = { "Stipendio", "Abbonamento" };
+	//private final String[] DEFAULT_OPTIONS = { "Stipendio", "Abbonamento" };
+	private PropertyReader p;
 
 	public AccountablePanel() {
 		super();
 		istr = new JLabel("Seleziona che tipo di abbonamento/accredito intendi aggiungere");
-		options = new JComboBox<String>(DEFAULT_OPTIONS);
+		
+		p = new PropertyReader("properties/config");
+		options = new JComboBox<String>(p.getPropertyValueAsStringVec(",","accountable_names"));
+		
 
 		setLayout(new BorderLayout());
 		add(istr, BorderLayout.NORTH);
@@ -39,8 +45,8 @@ public class AccountablePanel extends JPanel {
 		this.options = options;
 	}
 
-	public String[] getDEFAULT_OPTIONS() {
-		return DEFAULT_OPTIONS;
-	}
+//	public String[] getDEFAULT_OPTIONS() {
+//		return DEFAULT_OPTIONS;
+//	}
 
 }

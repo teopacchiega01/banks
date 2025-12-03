@@ -1,4 +1,4 @@
-package it.unipv.pois.ProgettoBanca.view;
+package it.unipv.pois.ProgettoBanca.view.frameconti;
 
 import java.awt.BorderLayout;
 
@@ -6,33 +6,42 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.plaf.LayerUI;
 
-public class DepositAccountPanel extends JPanel {
+import it.unipv.pois.ProgettoBanca.view.PropertyReader;
 
+public class WebAccountPanel extends JPanel {
+	
+	private PropertyReader p;
 	private JLabel proprietrario;
 	private JLabel istr;
-	private JLabel result;
 	private JLabel saldo;
+	private JLabel result;
+
+	private JTextField psw;
 	private JTextField cifra;
 	private JComboBox<String> operations;
-	private static final String[] ACC_OPERATIONS = { "Deposito", "Stampa Dettagli",
-			"Aggiungi un accredito/addebito mensile", "Rimuovi un accredito/addebito mensile"
+	//private static final String[] ACC_OPERATIONS = { "Prelievo", "Deposito", "Stampa Detattagli","Aggiungi un accredito/addebito mensile", "Rimuovi un accredito/addebito mensile", "Modifica Password" };
 
-	};
-
-	public DepositAccountPanel() {
+	public WebAccountPanel() {
 		super();
-		istr = new JLabel("Inserisci le tue informazioni e seleziona una delle opzioni");
+		istr = new JLabel("Inserisci la password e seleziona una delle opzioni");
 		saldo = new JLabel();
 		result = new JLabel();
+
 		proprietrario = new JLabel();
+		psw = new JTextField("inserisci la passw");
 		cifra = new JTextField("inserisci una cifra da accreditare/depositare");
-		operations = new JComboBox<>(ACC_OPERATIONS);
+		
+		p = new PropertyReader("properties/config");
+		operations = new JComboBox<String>(p.getPropertyValueAsStringVec(",","bank_operations_web"));
+
 
 		setLayout(new BorderLayout());
 		JPanel data_insert = new JPanel();
 		JPanel informations = new JPanel();
 
+		data_insert.add(psw);
 		data_insert.add(cifra);
 		informations.add(proprietrario);
 		informations.add(saldo);
@@ -45,10 +54,19 @@ public class DepositAccountPanel extends JPanel {
 
 	}
 
+	public void setResult(String s) {
+		result.setText(s);
+	}
+
+	public String getUserPassw() {
+		return psw.getText();
+	}
+
 	public double getCifraAccreditoDeposito() {
 
 		try {
-			double cifra_acc_dep = Double.parseDouble(cifra.getText());
+			double cifra_acc_dep;
+			cifra_acc_dep = Double.parseDouble(cifra.getText());
 			return cifra_acc_dep;
 		} catch (NumberFormatException e) {
 			// TODO: handle exception
@@ -56,10 +74,6 @@ public class DepositAccountPanel extends JPanel {
 			return 1;
 		}
 
-	}
-
-	public void setResult(String text) {
-		result.setText(text);
 	}
 
 	public void setLabelProprietario(String text) {
@@ -94,6 +108,14 @@ public class DepositAccountPanel extends JPanel {
 		this.saldo = saldo;
 	}
 
+	public JTextField getPsw() {
+		return psw;
+	}
+
+	public void setPsw(JTextField psw) {
+		this.psw = psw;
+	}
+
 	public JTextField getCifra() {
 		return cifra;
 	}
@@ -110,8 +132,8 @@ public class DepositAccountPanel extends JPanel {
 		this.operations = operations;
 	}
 
-	public static String[] getAccOperations() {
-		return ACC_OPERATIONS;
-	}
+//	public static String[] getAccOperations() {
+//		return ACC_OPERATIONS;
+//	}
 
 }

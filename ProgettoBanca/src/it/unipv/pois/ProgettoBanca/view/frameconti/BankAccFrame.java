@@ -1,4 +1,4 @@
-package it.unipv.pois.ProgettoBanca.view;
+package it.unipv.pois.ProgettoBanca.view.frameconti;
 
 import java.awt.Dimension;
 import java.awt.HeadlessException;
@@ -29,6 +29,32 @@ public class BankAccFrame extends JFrame {
 	}
 	
 	
+	public void changeBankAccPanelByType(String tipo_conto,String nome_titolare,String cognome_titolare) {
+		switch(tipo_conto) {
+		case "Conto Corrente":
+			
+			
+			setContentPane(ap);
+			setLabelProprietarioAcc("Nome del proprietario: "+nome_titolare+" Cognome: "+cognome_titolare);
+			break;
+			
+		case "Conto Web":
+			setContentPane(wap);
+			setLabelProprietarioWeb("Nome del proprietario: "+nome_titolare+" Cognome: "+cognome_titolare);
+
+		
+			break;
+		case "Conto Deposito":
+			setContentPane(dbp);
+			setLabelProprietarioDeposito("Nome del proprietario: "+nome_titolare+" Cognome: "+cognome_titolare);
+
+			
+			break;
+			
+		
+		
+		}
+	}
 
 	public DepositAccountPanel getDbp() {
 		return dbp;

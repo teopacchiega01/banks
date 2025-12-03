@@ -1,4 +1,4 @@
-package it.unipv.pois.ProgettoBanca.view;
+package it.unipv.pois.ProgettoBanca.view.mainframe;
 
 import java.awt.BorderLayout;
 
@@ -8,22 +8,28 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import it.unipv.pois.ProgettoBanca.view.PropertyReader;
+
 public class AddBankAccountPanel extends JPanel {
 	private JLabel user_istructions;
 	private JComboBox<String> bankacc_list;
-	private final String[] DEFAULT_OPTIONS = { "Conto Corrente", "Conto Deposito", "Conto Web" };
+//	private final String[] DEFAULT_OPTIONS = { "Conto Corrente", "Conto Deposito", "Conto Web" };
 	private JTextField nome;
 	private JTextField cognome;
 	private JTextField cf;
 	private JButton conferma_inserimento;
 	private JButton to_conto;
 	private JLabel result;
+	private PropertyReader p;
 
 	public AddBankAccountPanel() {
 		super();
 		user_istructions = new JLabel("Seleziona il tipo di conto che vuoi aggiungere e inserisci i tuoi dati ");
 		result = new JLabel();
-		bankacc_list = new JComboBox<>(DEFAULT_OPTIONS);
+		
+		
+		p = new PropertyReader("properties/config");
+		bankacc_list = new JComboBox<String>(p.getPropertyValueAsStringVec(",","bank_accounts"));
 		nome = new JTextField("nome");
 		cognome = new JTextField("cognome");
 		cf = new JTextField("codice fiscale");
