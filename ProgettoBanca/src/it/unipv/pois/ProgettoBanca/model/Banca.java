@@ -6,6 +6,7 @@ import it.unipv.pois.ProgettoBanca.model.Conti.ContiFactory;
 import it.unipv.pois.ProgettoBanca.model.Conti.Conto;
 import it.unipv.pois.ProgettoBanca.model.Conti.EnumConti;
 import it.unipv.pois.ProgettoBanca.model.Conti.Persona;
+import it.unipv.pois.ProgettoBanca.model.GestoreAccountable.GestoreAccountable;
 import it.unipv.pois.ProgettoBanca.model.operazioniconti.DatiOperazioniConti;
 import it.unipv.pois.ProgettoBanca.model.operazioniconti.IBankAccOperationsStrategy;
 import it.unipv.pois.ProgettoBanca.model.operazioniconti.OperationFactory;
@@ -17,6 +18,7 @@ public class Banca {
 	private ContiFactory conti_factory;
 	private OperationFactory operation_factory;
 	private IBankAccOperationsStrategy bank_operations;
+	private GestoreAccountable gestore_accountable;
 
 	public Banca(String nome, ArrayList<Conto> conti, ArrayList<Persona> clienti) {
 		super();
@@ -25,6 +27,7 @@ public class Banca {
 		this.clienti = clienti;
 		this.conti_factory = new ContiFactory();
 		this.operation_factory = new OperationFactory();
+		this.gestore_accountable = new GestoreAccountable(this.conti);
 		
 	}
 	
@@ -135,18 +138,10 @@ public class Banca {
 		
 	}
 
-	public boolean operazioniAccountable() {
-		// gestisce gli accountable
-		boolean appoggio = true;
-		for(Conto appoggio_c: conti) {
-			appoggio = appoggio_c.aggiornaConto();
-		}
-		if(appoggio) {
-			System.out.println("Tutte le operazioni sono andate a buon fine");
-		}else {
-			System.out.println("Alcune operazioni sono fallite");
-		}
-		return appoggio;
+	public void operazioniAccountable() {
+		// gestisce gli accountable tramite thread
+		Thread thread_gestione_accountable = new Thread(this.gestore_accountable);
+		thread_gestione_accountable.start();
 	}
 
 

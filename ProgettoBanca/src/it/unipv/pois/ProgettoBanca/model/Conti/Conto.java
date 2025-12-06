@@ -51,11 +51,11 @@ public abstract class Conto {
 		this.iban = iban;
 	}
 
-	public Double getSaldo() {
+	public synchronized Double getSaldo() {
 		return saldo;
 	}
 
-	public void setSaldo(Double saldo) {
+	public synchronized void setSaldo(Double saldo) {
 		this.saldo = saldo;
 	}
 
@@ -125,7 +125,7 @@ public abstract class Conto {
 	
 	
 	
-	public boolean aggiornaConto() {
+	public synchronized boolean  aggiornaConto() {
 		//Esegue gli accountable del conto
 		double totale_appoggio = 0;
 		for(Accountable acc_appoggio : acc) {
