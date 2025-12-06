@@ -6,12 +6,17 @@ import it.unipv.pois.ProgettoBanca.model.Conti.ContiFactory;
 import it.unipv.pois.ProgettoBanca.model.Conti.Conto;
 import it.unipv.pois.ProgettoBanca.model.Conti.EnumConti;
 import it.unipv.pois.ProgettoBanca.model.Conti.Persona;
+import it.unipv.pois.ProgettoBanca.model.operazioniconti.DatiOperazioniConti;
+import it.unipv.pois.ProgettoBanca.model.operazioniconti.IBankAccOperationsStrategy;
+import it.unipv.pois.ProgettoBanca.model.operazioniconti.OperationFactory;
 
 public class Banca {
 	private String nome;
 	private ArrayList<Conto> conti;
 	private ArrayList<Persona> clienti;
 	private ContiFactory conti_factory;
+	private OperationFactory operation_factory;
+	private IBankAccOperationsStrategy bank_operations;
 
 	public Banca(String nome, ArrayList<Conto> conti, ArrayList<Persona> clienti) {
 		super();
@@ -19,6 +24,8 @@ public class Banca {
 		this.conti = conti;
 		this.clienti = clienti;
 		this.conti_factory = new ContiFactory();
+		this.operation_factory = new OperationFactory();
+		
 	}
 	
 	public Banca(String nome) {
@@ -27,6 +34,7 @@ public class Banca {
 		this.conti = new ArrayList<Conto>();
 		this.clienti = new ArrayList<Persona>();
 		this.conti_factory = new ContiFactory();
+		this.operation_factory = new OperationFactory();
 	}
 
 	public ArrayList<Persona> getClienti() {
@@ -51,6 +59,14 @@ public class Banca {
 
 	public void setC(ArrayList<Conto> conti) {
 		this.conti = conti;
+	}
+	public DatiOperazioniConti creaDatiConti() {
+		return new DatiOperazioniConti();
+	}
+	public void operazioniSuiConti(DatiOperazioniConti b,String scelta) {
+		bank_operations = operation_factory.getBankAccOperationStrategy(scelta);
+		bank_operations.eseguiOperazioneSuConto(b);
+		
 	}
 
 	public double getTotaleSaldi() {

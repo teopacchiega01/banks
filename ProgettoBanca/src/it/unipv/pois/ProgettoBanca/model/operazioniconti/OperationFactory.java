@@ -11,13 +11,14 @@ public class OperationFactory {
 	public IBankAccOperationsStrategy getBankAccOperationStrategy(String scelta) {
 		
 		
-		if(operation == null){
+		//if(operation == null){
 			p = new PropertyReader("properties/operazioni");
 			String OperationClassName = p.cercaProperty(scelta);
 			
 				try {
 					Constructor c = Class.forName(OperationClassName).getConstructor();
 					operation = (IBankAccOperationsStrategy)c.newInstance();
+					System.out.println(scelta+operation);
 					
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
@@ -25,7 +26,7 @@ public class OperationFactory {
 					e.printStackTrace();
 				}
 			
-		}
+		//}
 		
 		return operation;
 		

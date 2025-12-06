@@ -5,7 +5,7 @@ import it.unipv.pois.ProgettoBanca.model.Conti.ContoWeb;
 public class ModificaPswStrategy implements IBankAccOperationsStrategy {
 
 	@Override
-	public void eseguiOperazioneSuConto(BankAccContext b) {
+	public void eseguiOperazioneSuConto(DatiOperazioniConti b) {
 		// TODO Auto-generated method stub
 		
 		ContoWeb c =(ContoWeb) b.getC();

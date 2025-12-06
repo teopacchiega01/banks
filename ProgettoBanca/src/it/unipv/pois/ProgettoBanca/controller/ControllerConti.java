@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 import it.unipv.pois.ProgettoBanca.model.Banca;
 import it.unipv.pois.ProgettoBanca.model.Conti.Conto;
-import it.unipv.pois.ProgettoBanca.model.operazioniconti.BankAccContext;
+import it.unipv.pois.ProgettoBanca.model.operazioniconti.DatiOperazioniConti;
 import it.unipv.pois.ProgettoBanca.view.frameconti.BankAccFrame;
 
 public class ControllerConti {
@@ -46,8 +46,15 @@ public class ControllerConti {
 				String scelta = af.getAccComboBoxOption();
 				double cifra = af.getCifraAcc();
 				
-				BankAccContext b = new BankAccContext(c, cifra, scelta);
-				b.eseguiOperazioneBancaria();
+//				DatiOperazioniConti b = new DatiOperazioniConti(c, cifra, scelta);
+				//b.eseguiOperazioneBancaria();
+				//DatiOperazioniConti b = new DatiOperazioniConti(c, cifra);
+				DatiOperazioniConti b =banca.creaDatiConti();
+				b.setC(c);
+				b.setScelta(scelta);
+				b.setCifra(cifra);
+				banca.operazioniSuiConti(b, scelta);
+				System.out.println(scelta);
 				
 				
 				
