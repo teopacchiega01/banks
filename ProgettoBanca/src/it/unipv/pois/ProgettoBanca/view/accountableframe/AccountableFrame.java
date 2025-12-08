@@ -7,6 +7,9 @@ import java.awt.Toolkit;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+import it.unipv.pois.ProgettoBanca.view.frameconti.BankAccFrame;
 
 public class AccountableFrame extends JFrame {
 	AccountablePanel acc_panel;
@@ -23,11 +26,73 @@ public class AccountableFrame extends JFrame {
 		salary_panel = new SalaryPanel();
 		sub_panel = new SubscriptionPanel();
 
-		add(acc_panel);
+	
 		add(salary_panel);
 		add(sub_panel);
+		add(acc_panel);
 
 	}
+	
+	public void changePanelByChoice(String scelta) {
+		System.out.println("Hai scelto: "+scelta);
+		switch(scelta) {
+		case "Stipendio":
+			rimuoviPannello(acc_panel);
+			setContentPane(salary_panel);
+			revalidate();
+			repaint();
+			
+			break;
+		case "Abbonamento":
+			
+			rimuoviPannello(acc_panel);
+			setContentPane(sub_panel);
+			revalidate();
+			repaint();
+			
+			break; 
+		
+		
+		
+		
+		}
+		
+	}
+	
+	
+	 
+	public JButton getBackButtonFromSalary() {
+		return salary_panel.getBackToAccountPanel();
+		
+	}
+	public JButton getBackButtonFromSub() {
+		return sub_panel.getBackToAccountPanel();
+		
+	}
+		
+	public JButton getBackToBankAcc() {
+		return acc_panel.getBackBankAccButton();
+	}
+		
+	public SalaryPanel getSalaryPanel() {
+		return salary_panel;
+	}
+	public SubscriptionPanel getSubscriptionPanel() {
+		return sub_panel;
+	}
+	public AccountablePanel getAccountablePanel() {
+		return acc_panel;
+	}
+		
+	public void rimuoviPannello(JPanel p) {
+		remove(p);
+	}
+	
+	public String getAccountablePanelOption() {
+		
+		return acc_panel.getComboBoxOption();
+	}
+	
 
 	public JComboBox<String> getAccOptions() {
 		return acc_panel.getOptions();

@@ -15,6 +15,7 @@ public class SalaryPanel extends JPanel {
 	private JTextField importo;
 	private JButton aggiungi;
 	private JButton rimuovi;
+	private JButton back_to_accountPanel;
 
 	public SalaryPanel() {
 		super();
@@ -24,10 +25,12 @@ public class SalaryPanel extends JPanel {
 		importo = new JTextField("Inserisci la cifra del tuo stipendio");
 		aggiungi = new JButton("inserisci stipendio");
 		rimuovi = new JButton("rimuovi stipendio");
+		back_to_accountPanel = new JButton("Torna alla scelta dell'accountable");
 
 		JPanel buttons = new JPanel();
 		buttons.add(aggiungi);
 		buttons.add(rimuovi);
+		buttons.add(back_to_accountPanel);
 
 		JPanel informations = new JPanel();
 		informations.add(nome);
@@ -39,6 +42,17 @@ public class SalaryPanel extends JPanel {
 		add(informations, BorderLayout.CENTER);
 
 	}
+
+	public JButton getBackToAccountPanel() {
+		return back_to_accountPanel;
+	}
+
+
+
+	public void setBackToAccountPanel(JButton back_to_accountPanel) {
+		this.back_to_accountPanel = back_to_accountPanel;
+	}
+
 
 	public String getSalaryName() {
 

@@ -62,6 +62,10 @@ public class DepositAccountPanel extends JPanel {
 		}
 
 	}
+	
+	public String getOptionSelected() {
+		return (String) operations.getSelectedItem();
+	}
 
 	public void setResult(String text) {
 		result.setText(text);

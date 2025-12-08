@@ -102,6 +102,18 @@ public class Controller {
 				mf.setLabelConfermaAggiuntaConto("Conto inserito");
 			}
 		});
+		
+		
+		mf.backToConti().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				mf.setContentPane(mf.getWp());
+				
+			}
+		});
+		
 
 		mf.getConfermaButtonBankOps().addActionListener(new ActionListener() {
 

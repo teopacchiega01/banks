@@ -7,6 +7,8 @@ import java.awt.Toolkit;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 
+import it.unipv.pois.ProgettoBanca.view.accountableframe.AccountableFrame;
+
 public class BankAccFrame extends JFrame {
 
 	private DepositAccountPanel dbp;
@@ -28,6 +30,23 @@ public class BankAccFrame extends JFrame {
 
 	}
 	
+	
+	public AccountableFrame createFrameByChoice(String scelta) {
+		AccountableFrame f = null;
+		
+		
+		switch(scelta) {
+			
+		case "Aggiungi un accredito/addebito mensile":
+		case "Rimuovi un accredito/addebito mensile":
+			
+			f = new AccountableFrame();
+			return f;
+		
+		}
+		
+		return f; 
+	}
 	
 	public void changeBankAccPanelByType(String tipo_conto,String nome_titolare,String cognome_titolare) {
 		switch(tipo_conto) {
@@ -108,14 +127,22 @@ public class BankAccFrame extends JFrame {
 	public JComboBox<String> getDepositBankAccOptions() {
 		return dbp.getOperations();
 	}
+	
+	public String getDepositoComboBoxOption() {
+		return dbp.getOptionSelected();
+	}
+	
 
 	public void setResulDeposito(String s) {
 		dbp.setResult(s);
 
 	}
 
-	public String getPassw() {
-		return wap.getUserPassw();
+	public String getNewPassw() {
+		return wap.getUserNewPassw();
+	}
+	public String getOldPassw() {
+		return wap.getUserOldPassw();
 	}
 
 	public double getCifraWebAcc() {
@@ -137,7 +164,11 @@ public class BankAccFrame extends JFrame {
 	public JComboBox<String> getWebAccOptions() {
 		return wap.getOperations();
 	}
-
+	public String getWebComboBoxOption() {
+		
+		return wap.getOptionSelected();
+		
+	}
 	public double getCifraAcc() {
 		return ap.getCifraAccreditoDeposito();
 	}

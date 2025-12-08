@@ -5,4 +5,5 @@ public interface Accountable {
 	// - accredito = ritornerà un valore positivo
 	// - addebito = ritornerà un valore negativo
 	public double eseguiAccountable();
+	public String getNomeAccountable();
 }

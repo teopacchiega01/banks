@@ -2,13 +2,17 @@ package it.unipv.pois.ProgettoBanca.model.Conti;
 
 import java.util.ArrayList;
 
+
+
 import it.unipv.pois.ProgettoBanca.model.Accountable.Accountable;
+import it.unipv.pois.ProgettoBanca.model.Accountable.AccountableFactory;
 
 public abstract class Conto {
 	private Persona titolare;
 	private String iban;
 	private double saldo;
 	private ArrayList<Accountable> acc;
+	private AccountableFactory acc_factory;
 
 	public Conto(Persona titolare, ArrayList<Accountable> acc) {
 		super();
@@ -16,6 +20,7 @@ public abstract class Conto {
 		this.iban = generaIban();
 		this.saldo = 0;
 		this.acc = acc;
+		this.acc_factory = new AccountableFactory();
 	}
 
 	public Conto(Persona titolare) {
@@ -24,6 +29,7 @@ public abstract class Conto {
 		this.iban = generaIban();
 		this.saldo = 0;
 		this.acc = new ArrayList<Accountable>();
+		this.acc_factory = new AccountableFactory();
 	}
 	
 	public Conto() {
@@ -32,9 +38,11 @@ public abstract class Conto {
 		this.iban = generaIban();
 		this.saldo = 0;
 		this.acc = new ArrayList<Accountable>();
+		this.acc_factory = new AccountableFactory();
 	}
 	
-
+	
+	
 	public Persona getTitolare() {
 		return titolare;
 	}
@@ -94,7 +102,9 @@ public abstract class Conto {
 	
 	public boolean aggiungiAccountable(Accountable nuovo_accountable) {
 		try {
+			System.out.println(nuovo_accountable);
 			acc.add(nuovo_accountable);
+			System.out.println("Aggiunto");
 			return true;
 		} catch (IllegalArgumentException e) {
 			System.err.println("Impossibile aggiungere accountable; dettagli: "+e.getMessage());
@@ -140,7 +150,48 @@ public abstract class Conto {
 			return false;
 		}
 	}
+	public Accountable CercaAccountable(String nome) {
+		Accountable app = null; 
+		for(Accountable a: acc) {
+			if(a.getNomeAccountable().equals(nome)) {
+				app = a; 
+				
+				System.out.println("Accountable trovato"+app);
+			}
+		}
+		return app; 
+	}
 	
+	
+	public void rimuoviAccDaNome(String nome_acc) {
+		Accountable a = CercaAccountable(nome_acc);
+		if(a!=null) {
+			rimuoviAccountable(a);
+			
+			
+		}else {
+			System.out.println("Accountable non presente");
+		}
+		
+		
+	}
+
+	public Accountable creaAccountable(String scelta,String nome_acc) {
+		Accountable a = CercaAccountable(nome_acc);
+		if(a==null) {
+			a =acc_factory.getAccountable(scelta);
+			System.out.println("Accountable creato"+a);
+			return a; 
+		}else {
+			System.out.println("Non è stato possibile creare l'acc, probablemente già presente ");
+			return null;
+		}
+
+		
+		
+		
+	}
+
 	
 	public abstract String getTipoConto();
 	

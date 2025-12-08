@@ -18,6 +18,7 @@ public class WebAccountPanel extends JPanel {
 	private JLabel saldo;
 	private JLabel result;
 
+	private JTextField psw_vecchia;
 	private JTextField psw;
 	private JTextField cifra;
 	private JComboBox<String> operations;
@@ -31,6 +32,7 @@ public class WebAccountPanel extends JPanel {
 
 		proprietrario = new JLabel();
 		psw = new JTextField("inserisci la passw");
+		psw_vecchia = new JTextField("Inserisci la psw veccchia");
 		cifra = new JTextField("inserisci una cifra da accreditare/depositare");
 		
 		p = new PropertyReader("properties/config");
@@ -54,12 +56,20 @@ public class WebAccountPanel extends JPanel {
 
 	}
 
+	
+	public String getOptionSelected() {
+		return (String)operations.getSelectedItem();
+	}
+	
 	public void setResult(String s) {
 		result.setText(s);
 	}
 
-	public String getUserPassw() {
+	public String getUserNewPassw() {
 		return psw.getText();
+	}
+	public String getUserOldPassw() {
+		return psw_vecchia.getText();
 	}
 
 	public double getCifraAccreditoDeposito() {

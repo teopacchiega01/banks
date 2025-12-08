@@ -13,4 +13,10 @@ public class BollettaAdapter implements Accountable {
 		return -Math.abs(bolletta.getBimestrale()/2);
 	}
 
+	@Override
+	public String getNomeAccountable() {
+		// TODO Auto-generated method stub
+		return bolletta.getServizioFornito();
+	}
+
 }

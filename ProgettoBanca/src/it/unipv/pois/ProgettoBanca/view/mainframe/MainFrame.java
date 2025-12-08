@@ -42,6 +42,12 @@ public class MainFrame extends JFrame {
 		
 		support = new PropertyChangeSupport(this);
 	
+		
+	}
+	
+	
+	public JButton backToConti() {
+		return add_bank_panel.getTo_conto();
 	}
 	
 	

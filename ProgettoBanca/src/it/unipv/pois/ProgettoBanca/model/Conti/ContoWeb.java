@@ -69,13 +69,15 @@ public class ContoWeb extends ContoCorrente {
 	}
 
 	public boolean cambiaPassword(String vecchia_pw, String nuova_pv) {
+		
 		try {
 			if (pw.equals(vecchia_pw)) {
 				setPw(nuova_pv);
 				System.out.println("Password cambiata");
+				account_abilitato = true;
 				return true;
 			} else {
-				System.out.println("Password errata");
+				System.out.println("Password errata"); 
 				return false;
 			}
 		} catch (IllegalArgumentException e) {
@@ -114,5 +116,30 @@ public class ContoWeb extends ContoCorrente {
 		return "Conto Web";
 	}
 
+	@Override
+	public boolean prelievo(double somma) {
+		// TODO Auto-generated method stub
+		if(account_abilitato)
+			return super.prelievo(somma);
+		else {
+			System.out.println("Account NON abilitato");
+			return false;
+		}
+	}
+
+	@Override
+	public boolean deposito(double somma) {
+		// TODO Auto-generated method stub
+		if(account_abilitato)
+			return super.deposito(somma);
+		else {
+			System.out.println("Account NON abilitato");
+			return false;
+		}
+		
+	}
+
+	
+	
 
 }

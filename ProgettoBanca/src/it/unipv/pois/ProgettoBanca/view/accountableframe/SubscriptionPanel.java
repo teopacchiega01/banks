@@ -17,6 +17,7 @@ public class SubscriptionPanel extends JPanel {
 	private JLabel istr;
 	private JButton aggiungi;
 	private JButton rimuovi;
+	private JButton back_to_accountPanel;
 
 	public SubscriptionPanel() {
 		super();
@@ -27,8 +28,9 @@ public class SubscriptionPanel extends JPanel {
 		data_inizio = new JTextField("Inserisci la data di inzio");
 		durata = new JTextField("Inserisci la durata del tuo abbonamento");
 
-		aggiungi = new JButton("inserisci stipendio");
-		rimuovi = new JButton("rimuovi stipendio");
+		aggiungi = new JButton("inserisci abbonamento");
+		rimuovi = new JButton("rimuovi abbonamentoo");
+		back_to_accountPanel = new JButton("Torna alla scelta dell'accountable");
 
 		JPanel insert = new JPanel();
 		insert.add(nome_sub);
@@ -43,6 +45,7 @@ public class SubscriptionPanel extends JPanel {
 		JPanel buttons = new JPanel();
 		buttons.add(aggiungi);
 		buttons.add(rimuovi);
+		buttons.add(back_to_accountPanel);
 
 		setLayout(new BorderLayout());
 
@@ -51,6 +54,20 @@ public class SubscriptionPanel extends JPanel {
 		add(buttons, BorderLayout.SOUTH);
 
 	}
+	
+	
+
+	public JButton getBackToAccountPanel() {
+		return back_to_accountPanel;
+	}
+
+
+
+	public void setBackToAccountPanel(JButton back_to_accountPanel) {
+		this.back_to_accountPanel = back_to_accountPanel;
+	}
+
+
 
 	public void setResultLabel(String s) {
 		result.setText(s);

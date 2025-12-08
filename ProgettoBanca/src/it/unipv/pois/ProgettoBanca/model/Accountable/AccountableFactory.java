@@ -4,9 +4,15 @@ import java.io.FileInputStream;
 import java.lang.reflect.Constructor;
 import java.util.Properties;
 
+import it.unipv.pois.ProgettoBanca.model.operazioniconti.IBankAccOperationsStrategy;
+import it.unipv.pois.ProgettoBanca.view.PropertyReader;
+
 public class AccountableFactory {
 	private static BollettaAdapter b_adapter;
 	private static final String B_PROPERTYNAME="bolletta.adapter.class.name";
+	private PropertyReader p; 
+	private Accountable acc;
+	
 
 	
 	// DA CHIEDERE:
@@ -43,8 +49,32 @@ public class AccountableFactory {
 
 		return b_adapter;
 	}
+	
+	public Accountable getAccountable(String scelta) {
+		p = new PropertyReader("properties/properties");
+		String OperationClassName = p.cercaProperty(scelta);
+		System.out.println(OperationClassName);
+		
+			try {
+				Constructor c = Class.forName(OperationClassName).getConstructor();
+				acc = (Accountable)c.newInstance();
+				System.out.println(scelta+acc);
+				
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				acc = null; 
+				e.printStackTrace();
+			}
+		
+	//}
+	
+	return acc;
+	
+		
+		
+	}
 
-
+	
 
 
 
